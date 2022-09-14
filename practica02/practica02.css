@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#sp2 {
+    color: red;
+}
+
+#sp1 {
+    /*margin: 100px;
+    padding: 100px;*/
+    color: black;
+}
+
+p span {
+    color: blueviolet;
+}
+
+.fuente {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+span::after {
+    content: '\A''\A'; white-space: pre;
+}
+
+a:link {
+color: red;
+}
+
+a:visited {
+color: green;
+}
+
+a:hover {
+color: hotpink;
+}
+
+a:active {
+color: blue;
+}
+
+p::first-line {
+color: #ff0000;
+font-variant: small-caps;
+}
+
+body {
+    background-image: url("fondo.jpg");
+}
