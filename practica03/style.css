@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* html, body {
+    height: 100%;
+} */
+
+/* .padre{
+    border: 10px dashed blue;
+    height: 20vh;
+} */
+
+.header{
+    background-color: grey;
+    height: 26vh;
+}
+.menu{
+    background-color: blue;
+    height: 7vh;
+}
+.contenido{
+    background-color: brown;
+    height: 60vh;
+    width: 70vw;
+    /* display: inline-block; */
+}
+.publicidad{
+    background-color: cadetblue;
+    height: 60vh;
+    width: 30vw;
+    /* display: inline-block;     */
+}
+.pie{
+    background-color: blue;
+    height: 7vh;
+}
+.superpadre{
+    display: flex;
+}

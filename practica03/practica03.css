@@ -1,7 +1,7 @@
-*{
+/* *{
     margin: 0px;
     padding: 0px;
-}
+} */
 
 /* .padre{
     background-color: orange;
@@ -16,7 +16,7 @@
     margin-right: auto;
 } */
 
-.padre{
+/* .padre{
     background-color: orange;
     margin: 10px;
     padding: 10px;
@@ -31,4 +31,5 @@
 
 img{
     width: 100%;
-}
+} */
+
