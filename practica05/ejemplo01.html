@@ -33,9 +33,21 @@
                 
             // }
             var arr = [].slice.call(c);
-            c.forEach(element => {  //funcion de flecha o arrow
-                console.log(element)
-            });
+            // c.forEach(element => {  //funcion de flecha o arrow
+            //     console.log(element)
+            // });
+            
+            let i =0;
+            for (let x in c) {
+                // texto += c
+                // console.log(texto);
+                if(i<c.length){
+                    c[x].style.color = "blue";
+                    i++;
+                }
+                
+            }
+            // console.log(texto);
         }
     </script>
 </head>
