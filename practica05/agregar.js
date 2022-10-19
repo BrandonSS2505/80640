@@ -15,6 +15,17 @@ function agregar(){
 }
 
 function buscar(){
+    listaTodo = document.getElementsByTagName("li")
+    for (let tarea in listaTodo){
+        if (Object.hasOwnProperty.call(listaTodo, tarea)){
+            a = listaTodo[tarea].childNodes [0]
+            b = leer()
+            console.log("a", typeof a.textContent, "b", typeof b)
+            if(){
+                
+            }
+        }
+    }
     //buscar por id
     if(document.getElementById(leer()) ==null){
         console.log("si existe")
