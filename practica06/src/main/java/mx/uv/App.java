@@ -14,24 +14,43 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
+
+        options("/*", (request, response) -> {
+            String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+            if (accessControlRequestHeaders != null) {
+                response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+            }
+            String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+            if (accessControlRequestMethod != null) {
+                response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+            }
+            return "OK";
+        });
+        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+
         get("/hello", (req, res) -> "Hello World");
         get("/eduardo", (req, res) -> "Hello Eduardo");
         get("/alex", (req, res) -> "Hello Alex");
         get("/brandon", (req, res) -> "Hello Brandon");
-        get("/", (req, res) -> "<h1>Bienvenidos</h1><img src='https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg'>");
+        get("/", (req, res) -> "<h1> Bienvenido </h1><img src='https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg'>");
 
         post("/", (req, res) ->{
             System.out.println(req.queryParams("email")+" "+ req.queryParams("password"));
             System.out.println(req.body());
+            JsonParser parser = new JsonParser();
+            JsonElement arbol = parser.parse(req.body());
+            JsonObject peticionDelCliente = arbol.getAsJsonObject();
+            System .out.println(peticionDelCliente.get("email"));
+            System .out.println(peticionDelCliente.get("password"));
+
             res.status(200);
             JsonObject oRespuesta= new JsonObject();
-            oRespuesta.addProperty("msj","hola");
-            oRespuesta.addProperty("email", req.queryParams("email"));
+            oRespuesta.addProperty("msj","Hola");
+            // oRespuesta.addProperty("email", req.queryParams("email"));
+            oRespuesta.addProperty("email", peticionDelCliente.get("email").getAsString());
             return oRespuesta;
             
         });
 
-        
     }
-    
 }
