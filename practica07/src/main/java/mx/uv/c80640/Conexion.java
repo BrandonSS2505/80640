@@ -1,10 +1,12 @@
+package mx.uv.c80640;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-// package mx.uv.c80640;
+import com.mysql.jdbc.Connection;
 
 public class Conexion {
-    private static String url = "jdbc:mysql://127.0.0.1:3306/nombreBD";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/ejemplo80640";
     private static String DriverName = "com.mysql.jdbc.Driver";
     private static String username = "root";
     private static String password = "";
@@ -13,13 +15,13 @@ public class Conexion {
     public static Connection getConnection(){
         try {
             Class.forName(DriverName);
-            connection = DriverManager.getConnection(url, username, password);
-        }catch(SQLException e){
+            connection = (Connection) DriverManager.getConnection(url, username, password);
+            System.out.println("listo conectado");
+        } catch (SQLException e){
             System.out.println(e);
-        }catch(ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             System.out.println("no encontro el driver");
         }
-
         return connection;
     }
 }
